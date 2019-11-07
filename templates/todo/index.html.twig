@@ -35,6 +35,20 @@
                     {% endif %}
                 </tr>
             {% endfor %}
+            <form method="post">
+                <tr>
+                    <td><input type="text" name="label"></td>
+                    <td><input type="text" name="name" required></td>
+                    <td><input type="date" name="dueDate"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit">
+                    </td>
+                    <td></td>
+                </tr>
+            </form>
         </table>
     {% endif %}
 
