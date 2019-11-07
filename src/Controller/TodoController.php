@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\TodoItem;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,6 +18,8 @@ class TodoController extends AbstractController
      */
     public function index()
     {
-        return $this->render('todo/index.html.twig');
+        $todos = $this->getDoctrine()->getRepository(TodoItem::class)->findAll();
+
+        return $this->render('todo/index.html.twig', ['todos' => $todos]);
     }
 }

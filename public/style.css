@@ -141,7 +141,7 @@ input[type=text]:focus {
     border-bottom: 2px solid #5fbae9;
 }
 
-input[type=text]:placeholder {
+input[type=text]::placeholder {
     color: #cccccc;
 }
 
@@ -259,4 +259,12 @@ input[type=text]:placeholder {
 
 #icon {
     width:60%;
+}
+.table {
+    margin: auto;
+    width: 50% !important;
+}
+
+.table th {
+    text-align: center;
 }
