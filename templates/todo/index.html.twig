@@ -14,4 +14,28 @@
             You are not logged in <a href="{{ path('app_login') }}">Logout</a>
         </div>
     {% endif %}
+
+    {% if todos is defined %}
+        <table class="table table-bordered table-striped text-center">
+            <thead>
+            <tr>
+                <th>Label</th>
+                <th>Name</th>
+                <th>Due Date</th>
+            </tr>
+            </thead>
+            {% for todo in todos %}
+                <tr>
+                    <td>{{ todo.label }}</td>
+                    <td>{{ todo.name }}</td>
+                    {% if todo.dueDate is not null %}
+                        <td>{{ todo.dueDate | date("d/m/Y") }}</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
 {% endblock %}
