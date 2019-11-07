@@ -19,7 +19,7 @@ class TodoController extends AbstractController
      */
     public function index()
     {
-        $todos = $this->getDoctrine()->getRepository(TodoItem::class)->findAll();
+        $todos = $this->getDoctrine()->getRepository(TodoItem::class)->findBy(['user' => $this->getUser()], ['createdAt' => 'ASC']);
 
         return $this->render('todo/index.html.twig', ['todos' => $todos]);
     }
