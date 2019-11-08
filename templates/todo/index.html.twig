@@ -37,6 +37,7 @@
                     {% else %}
                         <td>-</td>
                     {% endif %}
+                    <td><a href="/todo/delete/{{ todo.id }}">X</a></td>
                 </tr>
             {% endfor %}
             <form method="post" action="/">

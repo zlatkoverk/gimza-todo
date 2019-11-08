@@ -46,4 +46,22 @@ class TodoController extends AbstractController
 
         return $this->redirect('/');
     }
+
+    /**
+     * @Route("/todo/delete/{id}", methods={"GET"})
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function removeTodoAction(int $id)
+    {
+        $todo = $this->getDoctrine()->getRepository(TodoItem::class)->find($id);
+
+        if (empty($todo) || $todo->getUser()->getId() !== $this->getUser()->getId()) {
+            return $this->json(['message' => 'Access Denied'], 403);
+        }
+
+        $this->getDoctrine()->getManager()->remove($todo);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirect('/');
+    }
 }
