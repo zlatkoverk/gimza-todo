@@ -15,6 +15,10 @@
         </div>
     {% endif %}
 
+    <form method="get" action="/search">
+        <input type="text" name="query">
+    </form>
+
     {% if todos is defined %}
         <table class="table table-bordered table-striped text-center">
             <thead>
