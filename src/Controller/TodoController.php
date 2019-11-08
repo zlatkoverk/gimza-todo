@@ -37,7 +37,8 @@ class TodoController extends AbstractController
 
         $dueDate = $request->get('dueDate');
         if (!empty($dueDate)) {
-            $todo->setDueDate($dueDate);
+            $dueDateTime = new \DateTime($dueDate);
+            $todo->setDueDate($dueDateTime);
         }
 
         $this->getDoctrine()->getManager()->persist($todo);
