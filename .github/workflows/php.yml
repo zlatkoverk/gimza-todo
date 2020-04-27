@@ -20,5 +20,5 @@ jobs:
     - name: Run test suite
       run: vendor/bin/phpunit
 
-    - name: Check code syntax
-      run: vendor/bin/psalm --output-format=github
+    - name: Psalm
+      uses: docker://vimeo/psalm-github-actions
