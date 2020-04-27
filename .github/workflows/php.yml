@@ -21,4 +21,4 @@ jobs:
       run: vendor/bin/phpunit
 
     - name: Psalm
-      uses: docker://vimeo/psalm-github-actions
+      run: vandor/bin/psalm --output-format=github
