@@ -8,21 +8,20 @@ on:
 
 jobs:
   build:
-
     runs-on: self-hosted
-
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-        extensions: mbstring, intl, pgsql, xml, dom
-        ini-values: post_max_size=256M, short_open_tag=On    
-        tools: phpunit
     - name: Composer
       run: composer install
-    - name: Test
-      run: vendor/bin/phpunit
+  syntax:
+    runs-on: self-hosted
+    needs: [build]
+    steps:
+    - name: psalm
+      uses: psalm/psalm-github-actions@1.0.0
+  test:
+    runs-on: self-hosted 
+    needs: [build]
+    steps:
+      - run: vendor/bin/phpunit
