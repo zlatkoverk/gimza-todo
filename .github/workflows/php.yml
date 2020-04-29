@@ -19,10 +19,9 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '7.4'
-        extensions: mbstring, intl, pgsql, dev, xml, dom
-        ini-values: post_max_size=256M, short_open_tag=On
-        coverage: xdebug    
-        tools: php-cs-fixer, phpunit
+        extensions: mbstring, intl, pgsql, xml, dom
+        ini-values: post_max_size=256M, short_open_tag=On    
+        tools: phpunit
     - name: Composer
       run: composer install
     - name: Test
