@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.11.2@d470903722cfcbc1cd04744c5491d3e6d13ec3d9">
+  <file src="src/Controller/RegistrationController.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>Response</code>
+    </InvalidNullableReturnType>
+    <NullableReturnStatement occurrences="1"/>
+  </file>
+  <file src="src/Security/LoginFormAuthenticator.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$user</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>getUser</code>
+    </MoreSpecificReturnType>
+    <PossiblyNullArgument occurrences="1">
+      <code>$request-&gt;getSession()</code>
+    </PossiblyNullArgument>
+    <PossiblyNullReference occurrences="1">
+      <code>set</code>
+    </PossiblyNullReference>
+  </file>
+</files>
