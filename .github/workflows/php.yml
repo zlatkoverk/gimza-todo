@@ -14,16 +14,7 @@ jobs:
       uses: actions/checkout@v2
     - name: Composer
       run: composer install
-  syntax:
-    runs-on: self-hosted
-    needs: [build]
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
     - name: psalm
-      uses: psalm/psalm-github-actions@1.0.0
-  test:
-    runs-on: self-hosted 
-    needs: [build]
-    steps:
-      - run: vendor/bin/phpunit
+      run: vendor/bin/psalm
+    - name: phpunit
+      run: vendor/bin/phpunit
