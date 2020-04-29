@@ -23,3 +23,7 @@ jobs:
         ini-values: post_max_size=256M, short_open_tag=On
         coverage: xdebug    
         tools: php-cs-fixer, phpunit
+    - name: Composer
+      run: composer install
+    - name: Test
+      run: vendor/bin/phpunit
