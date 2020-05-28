@@ -1,4 +1,4 @@
-name: PHP Composer
+name: General check
 
 on:
   push:
@@ -8,14 +8,13 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest
-
-    - name: Run test suite
-      run: ./vendor/bin/phpunit
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Composer
+      run: composer install
+    - name: psalm
+      run: vendor/bin/psalm
+    - name: phpunit
+      run: vendor/bin/phpunit
